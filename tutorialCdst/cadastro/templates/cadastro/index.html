@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<form action="{% url 'index'%}" method="POST">
+		{% csrf_token %} 
+		<label for="name">Nome:</label>
+		<input type="text" name="name" id="name" required />  
+		<br>    
+		<label for="email">E-mail:</label>
+		<input type="email" name="email" id="email" required />
+		<br>
+		<label for="phoneNumber">Celular:</label>
+		<input type="tel" name="phoneNumber" id="phoneNumber" required/>
+		<br>
+		<input type="checkbox"name="terms" id="terms" required/>
+		<label for="terms">
+		<em>Aceito trocar meus dados por comida</em>
+		</label>
+		<br>
+		<input type="submit" name="submit" id="submit" value="ENVIAR"/>
+	</form>
+	<br>
+	{% if error %}
+	<p>{{ error }}</p>
+	{% endif %}
+	{% if success %}
+	<p>{{ success }}</p>
+	{% endif %}
+		
+</body>
+</html>
